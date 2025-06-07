@@ -1,9 +1,13 @@
 
-import CenterContent from "../../components/CenterContent"
+import TitleContent from "../../components/TitleContent"
+import InputContent from "../../components/InputContent"
 export default function CenterLayout() {
   return (
-    <div className="relative top-20 h-full flex justify-center items-center">
-      <CenterContent />
+    <div className="h-full w-full flex items-center max-[1107px]:content-start">
+      <div className="flex justify-center items-center max-[1107px]:flex-col min-w-[320px] w-full">
+        <TitleContent classname={"pr-56 pb-28 max-[1107px]:pb-40 max-[1107px]:pr-0"}/>
+        <InputContent />
+      </div>
     </div>
   )
 } 
