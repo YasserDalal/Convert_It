@@ -13,7 +13,7 @@ export default function TitleContent({ classname, contents, clicked }) {
               {obj[clicked][0].title}
             </div>
             <div className="text-xl text-[clamp(0.73rem,3.5vw,1.1rem)] max-[560px]:text-center">
-              Enter the temperature, select units and submit.
+              {obj[clicked][0].subtitle()}
             </div>
           </React.Fragment>
           ))}
