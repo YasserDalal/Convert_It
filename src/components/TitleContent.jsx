@@ -12,7 +12,7 @@ export default function TitleContent({ classname, contents, clicked }) {
             <div className="pb-3 text-[clamp(1.5rem,8vw,2.8rem)] max-[560px]:text-center">
               {obj[clicked][0].title}
             </div>
-            <div className="text-xl text-[clamp(0.73rem,3.5vw,1.1rem)] max-[560px]:text-center">
+            <div className="text-xl text-[clamp(0.75rem,3.3vw,1.1rem)] max-[560px]:text-center">
               {boldInsideStrings(obj[clicked][0].subtitle)}
             </div>
           </React.Fragment>
