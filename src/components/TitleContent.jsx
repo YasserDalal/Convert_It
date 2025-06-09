@@ -1,8 +1,8 @@
 
 import React from "react"
+import boldInsideStrings from "../utils/formatter/BoldInsideStrings"
 
 export default function TitleContent({ classname, contents, clicked }) {
-  contents.filter(obj => obj[clicked] && console.log(obj[clicked][0].title))
   return (
     <div className={ classname }>
       <div className="flex flex-col max-[560px]:px-5">
@@ -13,7 +13,7 @@ export default function TitleContent({ classname, contents, clicked }) {
               {obj[clicked][0].title}
             </div>
             <div className="text-xl text-[clamp(0.73rem,3.5vw,1.1rem)] max-[560px]:text-center">
-              {obj[clicked][0].subtitle()}
+              {boldInsideStrings(obj[clicked][0].subtitle)}
             </div>
           </React.Fragment>
           ))}
