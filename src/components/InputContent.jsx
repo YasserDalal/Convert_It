@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import NumberInput from "../events/formatter/NumberInput";
+import NumberInput from "../utils/formatter/NumberInput";
 
 export default function InputContent(){
   const [inputValue, setInputValue] = useState();
