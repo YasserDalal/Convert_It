@@ -12,7 +12,7 @@ export const Data = [
   { 
     contents: [
       { Temperature: [
-          { title: 'Temperature Converter', subtitle: () => (<>Enter the <b>Temperature</b> select units and submit.</>)},
+          { title: 'Temperature Converter', subtitle: 'Enter the <b>Temperature</b> select units and submit.' },
           { units: [
             { name: "Celsius", value: "°C" },
             { name: "Fahrenheit", value: "°F" },
@@ -20,7 +20,7 @@ export const Data = [
           ]}]
       },
       { BMI: [
-          { title: 'BMI Converter', subtitle: () => (<>Enter the <b>Weight</b> and <b>Height</b>, select units and submit.</>)},
+          { title: 'BMI Converter', subtitle: 'Enter the <b>Weight</b> and <b>Height</b>, select units and submit.'},
           { units: [
             { name: "Metric", value: "kg/m2" },
             { name: "Imperial", value: "lb/ft2" }
@@ -28,7 +28,7 @@ export const Data = [
         ]
       },
       { Time: [
-          { title: 'Time Converter', subtitle: () => (<>Enter the <b>Time</b>, select units and submit.</>)},
+          { title: 'Time Converter', subtitle: 'Enter the <b>Time</b>, select units and submit.'},
           { units: [
             { name: "Seconds", value: "Seconds" },
             { name: "Minutes", value: "Minutes" },
@@ -41,7 +41,7 @@ export const Data = [
         ]
       },
       { Math: [
-          { title: 'Math Converter', subtitle: () => (<>Enter the <b>Number</b>, select units and submit.</>)},
+          { title: 'Math Converter', subtitle: 'Enter the <b>Number</b>, select units and submit.'},
           { units: [
             { name: "Radians", value: "Radians" },
             { name: "Degrees", value: "Degrees" },
@@ -50,7 +50,7 @@ export const Data = [
         ]
       },
       { Money: [
-          { title: 'Money Converter', subtitle: () => (<>Enter the <b>Amount</b>, select currency and submit.</>)},
+          { title: 'Money Converter', subtitle: 'Enter the <b>Amount</b>, select currency and submit.'},
           { units: [
             { name: "Dollars", value: "$" },
             { name: "Euros", value: "€" },
