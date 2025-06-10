@@ -1,8 +1,9 @@
 
 import ClickedNav from "../events/NavButtons/ClickedNav";
-export default function TopContent({ navigatorNames, clicked, setClicked }) {
+
+export default function TopContent({ className, navigatorNames, clicked, setClicked }) {
   return (
-    <div className="flex justify-between px-10 h-full max-[810px]:px-4">
+    <div className={className}>
       <div className="font-tab italic text-4xl flex items-center">
         <div>Convert It</div>
       </div>
