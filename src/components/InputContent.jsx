@@ -1,38 +1,27 @@
 
-import { useState } from "react";
-import NumberInput from "../utils/formatter/NumberInput";
+import { useState, useEffect } from "react";
+import InputNumber from "./input tag/InputNumber";
+import FirstUnit from "./select tag/FirstUnit";
+import LastUnit from "./select tag/LastUnit"; 
 
-export default function InputContent({ className }){
+export default function InputContent({ className, contents, clicked }) {
   const [inputValue, setInputValue] = useState();
   const [selectedFrom, setSelectedFrom] = useState("");
   const [selectedTo, setSelectedTo] = useState("");
+  useEffect(() => {
+  const validOptions = contents.find(obj => obj[clicked])?.[clicked][1].units || []; // get all units
+  // if the length is greater than 2 then set the first and the second units
+  validOptions.length >= 2 && setSelectedFrom(validOptions[0].name); setSelectedTo(validOptions[1].name); 
+  }, [clicked, contents]);
   return (
     <div className={className}>
       <div className="w-full flex justify-center pb-4">
-        <input type="text" inputMode="decimal" pattern="^\d{1,3}(\.\d{0,2})?$" maxLength={6} value={inputValue}  
-             className="w-28 max-[520px]:w-[30%] h-12 rounded-lg bg-gray-700 px-2 text-white text-center text-2xl outline-none focus:shadow-xl focus:shadow-[#000000] cursor-pointer transition-all duration-150 hover:brightness-90" onInput={(e) => NumberInput(e, setInputValue)} placeholder="0.00"/>
+        <InputNumber inputValue={inputValue} setInputValue={setInputValue} />
       </div>
       <div className="max-[520px]:justify-center gap-2  flex max-[520px]:w-[100%]">
-        <select name="cars" className="w-28 max-[520px]:w-full h-12 rounded-lg px-2 bg-gray-700 text-white outline-none focus:shadow-xl cursor-pointer transition-all duration-150 hover:brightness-90" onChange={
-        (e) => setSelectedFrom(e.target.value)} value={selectedFrom} 
-        style={{ backgroundImage: 'none', WebkitAppearance: 'none',
-                  MozAppearance: 'none',  appearance: 'none' }}>
-          <option value="" disabled hidden>From Unit</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-        </select>
-        <select name="cars" className="w-28 max-[520px]:w-full h-12 rounded-lg px-2 bg-gray-700 text-white focus:shadow-xl cursor-pointer transition-all duration-150 hover:brightness-90" onChange={
-          (e) => setSelectedTo(e.target.value)} value={selectedTo} 
-          style={{ backgroundImage: 'none', WebkitAppearance: 'none',
-                    MozAppearance: 'none',  appearance: 'none' }}>
-          <option value="" disabled hidden>To Unit</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-        </select>
+        <FirstUnit contents={contents} clicked={clicked} selectedFrom={selectedFrom} setSelectedFrom={setSelectedFrom} selectedTo={selectedTo}/>
+        <button className="w-28 max-[520px]:w-full h-12 rounded-lg bg-gray-800 cursor-pointer hover:bg-slate-700 transition-all duration-150" onClick={() => {setSelectedFrom(selectedTo); setSelectedTo(selectedFrom)}}>Switch</button>
+        <LastUnit contents={contents} clicked={clicked} selectedTo={selectedTo} setSelectedTo={setSelectedTo} selectedFrom={selectedFrom}/>
         <input type="button" value="Convert" className="w-28 max-[520px]:w-full h-12 rounded-lg bg-gray-800 cursor-pointer hover:bg-slate-700 transition-all duration-150"/>
       </div>
     </div>
