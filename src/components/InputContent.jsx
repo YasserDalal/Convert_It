@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import InputNumber from "./input tag/InputNumber";
 import FirstUnit from "./select tag/FirstUnit";
 import LastUnit from "./select tag/LastUnit"; 
-
+import SwitchButton from "./switchButton/SwitchButton";
 export default function InputContent({ className, contents, clicked }) {
   const [inputValue, setInputValue] = useState();
   const [selectedFrom, setSelectedFrom] = useState("");
@@ -20,7 +20,7 @@ export default function InputContent({ className, contents, clicked }) {
       </div>
       <div className="max-[520px]:justify-center gap-2  flex max-[520px]:w-[100%]">
         <FirstUnit contents={contents} clicked={clicked} selectedFrom={selectedFrom} setSelectedFrom={setSelectedFrom} selectedTo={selectedTo}/>
-        <button className="w-28 max-[520px]:w-full h-12 rounded-lg bg-gray-800 cursor-pointer hover:bg-slate-700 transition-all duration-150" onClick={() => {setSelectedFrom(selectedTo); setSelectedTo(selectedFrom)}}>Switch</button>
+        <SwitchButton selectedFrom={selectedFrom} selectedTo={selectedTo} setSelectedFrom={setSelectedFrom} setSelectedTo={setSelectedTo}/>
         <LastUnit contents={contents} clicked={clicked} selectedTo={selectedTo} setSelectedTo={setSelectedTo} selectedFrom={selectedFrom}/>
         <input type="button" value="Convert" className="w-28 max-[520px]:w-full h-12 rounded-lg bg-gray-800 cursor-pointer hover:bg-slate-700 transition-all duration-150"/>
       </div>
