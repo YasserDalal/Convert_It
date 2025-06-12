@@ -4,6 +4,7 @@ import InputNumber from "./input tag/InputNumber";
 import FirstUnit from "./select tag/FirstUnit";
 import LastUnit from "./select tag/LastUnit"; 
 import SwitchButton from "./switchButton/SwitchButton";
+
 export default function InputContent({ className, contents, clicked }) {
   const [inputValue, setInputValue] = useState();
   const [selectedFrom, setSelectedFrom] = useState("");
