@@ -1,13 +1,15 @@
 
-export default function LastUnit({ contents, clicked, selectedTo, selectedFrom, setSelectedTo }) {
+export default function LastUnit({className, selectedTo, selectedFrom, setSelectedTo, unitsTo, setUnitsTo, units }) {
   return (
-    <select name="cars" className="w-28 max-[520px]:w-full h-12 rounded-lg px-2 bg-gray-700 text-white focus:shadow-xl cursor-pointer transition-all duration-150 hover:brightness-90 outline-none" onChange={(e) => setSelectedTo(e.target.value)} value={selectedTo} 
-      style={{ backgroundImage: 'none', WebkitAppearance: 'none', MozAppearance: 'none',  appearance: 'none' }}>
-      {contents.filter(obj => obj[clicked])
-        .map((obj) => obj[clicked][1].units
-          .filter(item => item.name !== selectedFrom)
-            .map((item, index) => (
-              <option value={item.name} key={index}>{item.name}</option>)))}
-    </select> 
+    <div className={className}>
+      <div className="absolute -top-7 left-0 right-0 text-center">{unitsTo}</div>
+      <select name="cars" className="w-full h-12 rounded-lg px-2 bg-gray-700 text-white outline-none focus:shadow-xl cursor-pointer transition-all duration-150 relative" onChange={(e) => {
+        units.find(unit => unit.name === e.target.value && setUnitsTo(unit.value))
+        setSelectedTo(e.target.value)}} 
+        value={selectedTo} style={{ backgroundImage: 'none', WebkitAppearance: 'none', MozAppearance: 'none',  appearance: 'none' }}>
+        {units.filter(item => item.name !== selectedFrom)
+              .map((item, index) => <option value={item.name} key={index}>{item.name}</option>)}
+      </select> 
+    </div>
   )
 }

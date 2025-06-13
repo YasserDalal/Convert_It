@@ -1,14 +1,15 @@
 
-export default function FirstUnit({ contents, clicked, selectedFrom, setSelectedFrom, selectedTo }) {
+export default function FirstUnit({className, selectedFrom, setSelectedFrom, selectedTo, unitsFrom, setUnitsFrom, units }) {
   return (
-    <select name="cars" className="w-28 max-[520px]:w-full h-12 rounded-lg px-2 bg-gray-700 text-white outline-none focus:shadow-xl cursor-pointer transition-all duration-150 hover:brightness-90" onChange={ (e) => setSelectedFrom(e.target.value)} 
-      value={selectedFrom} 
-      style={{ backgroundImage: 'none', WebkitAppearance: 'none',
-                MozAppearance: 'none',  appearance: 'none' }}>
-        {contents.filter(obj => obj[clicked]).map((obj) => obj[clicked][1].units
-                  .map((item, index) => (
-          <option value={item.name} key={index} disabled={item.name === selectedTo}>{item.name}</option>
-        )))}
+    <div className={className}>
+      <div className="absolute -top-7 left-0 right-0 text-center">{unitsFrom}</div>
+      <select name="cars" className="w-full h-12 rounded-lg px-2 bg-gray-700 text-white outline-none focus:shadow-xl cursor-pointer transition-all duration-150 relative" onChange={(e) => {
+        units.find(unit => unit.name === e.target.value && setUnitsFrom(unit.value))
+        setSelectedFrom(e.target.value)}} 
+        value={selectedFrom} style={{ backgroundImage: 'none', WebkitAppearance: 'none', MozAppearance: 'none',  appearance: 'none' }}>
+        {units.map((item, index) => 
+          <option value={item.name} key={index} disabled={item.name === selectedTo}>{item.name}</option>)}
       </select>
+    </div>
   )
-}
+} 
