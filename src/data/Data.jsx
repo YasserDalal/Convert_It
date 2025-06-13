@@ -22,8 +22,8 @@ export const Data = [
       { BMI: [
           { title: 'BMI Converter', subtitle: 'Enter the <b>Weight</b> and <b>Height</b>, select units and submit.'},
           { units: [
-            { name: "Metric", value: "kg/m2" },
-            { name: "Imperial", value: "lb/ft2" }
+            { name: "Metric", value: "kg" },
+            { name: "Imperial", value: "lb" }
           ]}
         ]
       },
