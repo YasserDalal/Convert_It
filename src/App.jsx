@@ -13,6 +13,7 @@ export default function App({ className }) {
   const [navigatorNames] = useState(getStorage('navigatorNames') || Data[0].navigatorNames);
   const [contents] = useState(getStorage('contents') || Data[1].contents);
   const [clicked, setClicked] = useState(getStorage('clicked') || 'Temperature');
+  const [result, setResult] = useState();
 
   // save the data when we refresh
   useEffect(() => { saveStorage('navigatorNames', navigatorNames) }, [navigatorNames]);
@@ -21,8 +22,8 @@ export default function App({ className }) {
 
   return (
     <div className={className}>
-      <TopLayout className="fixed top-0 left-16 right-16 h-16 rounded-bl-lg rounded-br-lg bg-gray-800 shadow-[1px_1px_10px_1px] shadow-[#040404f1] max-[440px]:left-10 max-[440px]:right-10" navigatorNames={navigatorNames} clicked={clicked} setClicked={setClicked}/>
-      <CenterLayout className="h-full w-full flex items-center max-[1174px]:content-start" contents={contents} clicked={clicked}/>
+      <TopLayout className="fixed top-0 left-16 right-16 h-16 rounded-bl-lg rounded-br-lg bg-gray-800 shadow-[1px_1px_10px_1px] shadow-[#040404f1] max-[440px]:left-10 max-[440px]:right-10" navigatorNames={navigatorNames} clicked={clicked} setClicked={setClicked} setResult={setResult}/>
+      <CenterLayout className="h-full w-full flex items-center max-[1174px]:content-start" contents={contents} clicked={clicked} result={result} setResult={setResult}/>
     </div>
   )
 }

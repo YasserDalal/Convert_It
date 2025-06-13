@@ -1,10 +1,10 @@
 
 import TopContent from "../../components/TopContent"
 
-export default function TopLayout({ className, navigatorNames, clicked, setClicked }) {
+export default function TopLayout({ className, navigatorNames, clicked, setClicked, setResult }) {
   return (
     <div className={className}>
-      <TopContent className="flex justify-between px-10 h-full max-[810px]:px-4" navigatorNames={navigatorNames} clicked={clicked} setClicked={setClicked}/>
+      <TopContent className="flex justify-between px-10 h-full max-[810px]:px-4" navigatorNames={navigatorNames} clicked={clicked} setClicked={setClicked} setResult={setResult}/>
     </div>
   )
 }
