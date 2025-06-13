@@ -1,7 +1,7 @@
 
 import ClickedNav from "../events/NavButtons/ClickedNav";
 
-export default function TopContent({ className, navigatorNames, clicked, setClicked }) {
+export default function TopContent({ className, navigatorNames, clicked, setClicked, setResult }) {
   return (
     <div className={className}>
       <div className="font-tab italic text-4xl flex items-center">
@@ -10,7 +10,10 @@ export default function TopContent({ className, navigatorNames, clicked, setClic
       <div className="hidden max-[720px]:block">Hi</div>
       <div className="flex gap-3 items-center text-lg max-[720px]:hidden">
         {navigatorNames.map((item, index) => (
-          <div className={`hover:text-white transition-colors duration-150 px-2 py-4 ${clicked === `${item.name}` ? 'text-white select-none':'text-[#b0b0b0] cursor-pointer'}`} typeof="button" onClick={() => ClickedNav(setClicked, item)} key={index}>{item.name}
+          <div className={`hover:text-white transition-colors duration-150 px-2 py-4 ${clicked === `${item.name}` ? 'text-white select-none':'text-[#b0b0b0] cursor-pointer'}`} typeof="button" onClick={() => {
+            ClickedNav(setClicked, item)
+            setResult()
+            }} key={index}>{item.name}
           </div>
         ))}
       </div>
