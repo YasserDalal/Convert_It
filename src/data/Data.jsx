@@ -43,9 +43,13 @@ export const Data = [
       { Math: [
           { title: 'Math Converter', subtitle: 'Enter the <b>Number</b>, select units and submit.'},
           { units: [
-            { name: "Radians", value: "Radians" },
-            { name: "Degrees", value: "Degrees" },
-            { name: "Grades", value: "Grades" }
+            { name: 'millimeters', value: 'mm' },
+            { name: 'centimeters', value: 'cm' },
+            { name: 'inches', value: 'in' },
+            { name: 'feet', value: 'ft' },
+            { name: 'yards', value: 'yd' },
+            { name: 'meters', value: 'm' },
+            { name: 'kilometers', value: 'km' }
           ]}
         ]
       },
