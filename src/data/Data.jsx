@@ -5,7 +5,7 @@ export const Data = [
       { name: "Temperature" },
       { name: "BMI" },
       { name: "Time" },
-      { name: "Math" },
+      { name: "Length" },
       { name: "Money" }
     ]
   },
@@ -40,8 +40,8 @@ export const Data = [
           ]}
         ]
       },
-      { Math: [
-          { title: 'Math Converter', subtitle: 'Enter the <b>Number</b>, select units and submit.'},
+      { Length: [
+          { title: 'Length Converter', subtitle: 'Enter the <b>Length</b>, select units and submit.'},
           { units: [
             { name: 'millimeters', value: 'mm' },
             { name: 'centimeters', value: 'cm' },

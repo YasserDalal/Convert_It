@@ -20,7 +20,7 @@ export default function ResultContent({ classname, result, finalInputValue, clic
           <div className="px-5">=</div> 
           <div>{result}</div>
         </div>
-      : clicked === 'Math' && result ? 
+      : clicked === 'Length' && result ? 
         <div className="flex text-2xl border py-2 px-4 rounded-lg">
           <div>{finalInputValue}</div> 
           <div className="px-5">=</div> 
