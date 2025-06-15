@@ -8,6 +8,8 @@ The purpose of this project is to let users **convert** values into their prefer
 I deepen my knowledge about how hooks really work together, specially **useEffect** by **saving the data** when the user accidentally refresh the page by using **localStorage** and a proper way to **structure** a folder and **naming** a proper **Functions/States**.
 
 Consistently implement **Responsive Design** principles across **all projects**, including **small-scale** initiatives.
+<br>
+<br>
 
 ## This is the technology I used for this project
 <p align="left">
@@ -16,7 +18,11 @@ Consistently implement **Responsive Design** principles across **all projects**,
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" width="40" height="40"/>
 </p>
 
+<br>
+<br>
 
+###### For checking:
 
+###### https://roadmap.sh/projects/temperature-converter
 
 
