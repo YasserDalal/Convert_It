@@ -6,7 +6,7 @@ export default function TitleContent({ classname, contents, clicked }) {
   return (
     <div className={ classname }>
       <div className="flex flex-col max-[560px]:px-5">
-        { contents.filter(obj => obj[clicked]).map((obj, index) => (
+        {contents && contents.filter(obj => obj[clicked]).map((obj, index) => (
           <React.Fragment key={index}>
             <div className="pb-3 text-[clamp(1.5rem,8vw,2.8rem)] max-[560px]:text-center">
               {obj[clicked][0].title}
