@@ -1,5 +1,5 @@
 
-export default function Convert(name, inputValue, inputValue1, inputValue2, from, to, setterResult, setterFinalValue, setterFinalValue2, setterInputValue, setterInputValue1, setterInputValue2, setBmi) {
+export default function Convert(units, name, inputValue, inputValue1, inputValue2, from, to, setterResult, setterFinalValue, setterFinalValue2, setterInputValue, setterInputValue1, setterInputValue2, setBmi) {
   // Temperatures
   function Temperatures(inputValue, from, to) {
     const value = Number(inputValue)
@@ -41,7 +41,7 @@ export default function Convert(name, inputValue, inputValue1, inputValue2, from
     const bmi = weight / (height * height);
     
     if (from === 'Metric' && to === 'Imperial') {
-      setterResult('BMI is ' + bmi.toFixed(2)); 
+      setterResult(bmi.toFixed(2)); 
       setterFinalValue2((weight * 2.20462).toFixed(2) + ' lbs');
       setterFinalValue(weight + ' kg');
       setBmi(() => {
@@ -369,9 +369,24 @@ export default function Convert(name, inputValue, inputValue1, inputValue2, from
     setterInputValue('');
   }
 
+  function Money(inputValue, from, to) {
+    const value = Number(inputValue)
+    const fromCurrency = units.find(currency => currency.name === from); // country to evaluate
+    const toCurrency = units.find(currency => currency.name === to); // country to convert
+
+    const toConvertValue = toCurrency.convertValue // to currency value
+    const fromConvertValue = fromCurrency.convertValue // from currency value 
+
+    const result = Number((value * toConvertValue / fromConvertValue).toFixed(2));
+
+    setterResult(Number(result).toLocaleString() + ' ' + toCurrency.value);
+    setterFinalValue(value + ' ' + fromCurrency.value);
+  }
+
   // Executions base on the content
   if(name === 'Temperature') return Temperatures(inputValue, from, to);
   if(name === 'BMI') return BMI(inputValue1, inputValue2, from, to);
   if(name === 'Time') return Time(inputValue, from, to);
   if(name === 'Length') return Length(inputValue, from, to);
+  if(name === 'Money') return Money(inputValue, from, to);
 }
