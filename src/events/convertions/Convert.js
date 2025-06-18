@@ -36,30 +36,35 @@ export default function Convert(units, name, inputValue, inputValue1, inputValue
   }
   // BMI
   function BMI(kiloNumber, heightNumber, from, to) {
-    const weight = Number(kiloNumber);
     const height = Number(heightNumber) / 100;
-    const bmi = weight / (height * height);
-    
+    // Imperial to Metric
+    const weightToKg = Number(kiloNumber) / 2.20462;
+    const bmiInPound = weightToKg / (height * height);
+
+    // Metric to Imperial
+    const weightToPounds = Number(kiloNumber);
+    const bmiInKg = weightToPounds / (height * height);
+
     if (from === 'Metric' && to === 'Imperial') {
-      setterResult(bmi.toFixed(2)); 
-      setterFinalValue2((weight * 2.20462).toFixed(2) + ' lbs');
-      setterFinalValue(weight + ' kg');
+      setterResult(bmiInKg.toFixed(2)); 
+      setterFinalValue2((weightToPounds * 2.20462).toFixed(2) + ' lbs');
+      setterFinalValue(weightToPounds + ' kg');
       setBmi(() => {
-        if (bmi.toFixed(2) < 18.5) return 'Underweight';
-        if (bmi.toFixed(2) >= 18.5 && bmi.toFixed(2) <= 24.9) return 'Healthy Weight';
-        if (bmi.toFixed(2) >= 25 && bmi.toFixed(2) <= 29.9) return 'Overweight';
-        if (bmi.toFixed(2) >= 30) return 'Obese';
+        if (bmiInKg < 18.5) return 'Underweight';
+        if (bmiInKg >= 18.5 && bmiInKg <= 24.9) return 'Healthy Weight';
+        if (bmiInKg >= 25 && bmiInKg <= 29.9) return 'Overweight';
+        if (bmiInKg >= 30) return 'Obese';
       });
     }
     if (from === 'Imperial' && to === 'Metric') {
-      setterResult('Your BMI is ' + bmi.toFixed(2)); 
-      setterFinalValue2((weight / 2.20462).toFixed(2) + ' kg');
-      setterFinalValue(weight + ' lbs');
+      setterResult(bmiInPound.toFixed(2)); 
+      setterFinalValue2((weightToPounds / 2.20462).toFixed(2) + ' kg');
+      setterFinalValue(weightToPounds + ' lbs');
       setBmi(() => {
-        if (bmi.toFixed(2) < 18.5) return 'Underweight';
-        if (bmi.toFixed(2) >= 18.5 && bmi.toFixed(2) <= 24.9) return 'Healthy Weight';
-        if (bmi.toFixed(2) >= 25 && bmi.toFixed(2) <= 29.9) return 'Overweight';
-        if (bmi.toFixed(2) >= 30) return 'Obese';
+        if (bmiInPound < 18.5) return 'Underweight';
+        if (bmiInPound >= 18.5 && bmiInPound <= 24.9) return 'Healthy Weight';
+        if (bmiInPound >= 25 && bmiInPound <= 29.9) return 'Overweight';
+        if (bmiInPound >= 30) return 'Obese';
       });
     }
     setterInputValue1('65')
