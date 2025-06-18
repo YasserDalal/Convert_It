@@ -20,7 +20,7 @@ export default function ResultContent({ classname, result, finalInputValue, clic
             <div>=</div>
             <div className="font-bold">{result}</div>
           </div>
-          <div className={`text-xl text-center border py-2 px-4 rounded-lg ${(result >= 25 || result <= 18) ? 'border-red-400' : 'border-green-400'}`}>{bmi}</div>
+          <div className={`text-xl text-center border py-2 px-4 rounded-lg ${(result >= 25 || result < 18.5) ? 'border-red-400' : 'border-green-400'}`}>{bmi}</div>
         </div>
       : clicked === 'Time' && result ? 
         <div className="flex text-2xl border py-2 px-4 rounded-lg">
